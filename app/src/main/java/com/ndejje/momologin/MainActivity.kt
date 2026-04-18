@@ -20,8 +20,6 @@ import com.ndejje.momologin.ui.theme.MoMoLoginAppTheme
 import com.ndejje.momologin.viewmodel.AuthViewModel
 import com.ndejje.momologin.viewmodel.AuthViewModelFactory
 
-
-
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
