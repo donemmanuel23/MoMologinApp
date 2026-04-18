@@ -1,9 +1,10 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -12,6 +13,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.ndejje.momologin.R
+import com.ndejje.momologin.viewmodel.AuthUiState
+import com.ndejje.momologin.viewmodel.AuthViewModel
 
 @Composable
 fun LoginScreen(
@@ -20,8 +24,8 @@ fun LoginScreen(
   onNavigateToRegister: () -> Unit
 ) {
   val authState by viewModel.authState.collectAsState()
-  var usernameInput by remember { mutableStateOf("") }
-  var passwordInput by remember { mutableStateOf("") }
+  var usernameInput by rememberSaveable { mutableStateOf("") }
+  var passwordInput by rememberSaveable { mutableStateOf("") }
 
   LaunchedEffect(authState) {
     if (authState is AuthUiState.Success) {

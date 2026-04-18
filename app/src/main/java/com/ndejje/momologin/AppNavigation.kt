@@ -6,11 +6,16 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.ndejje.momologin.view.HomeScreen
+import com.ndejje.momologin.view.LoginScreen
+import com.ndejje.momologin.view.RegisterScreen
+import com.ndejje.momologin.viewmodel.AuthViewModel
 
 object Routes {
   const val LOGIN    = "login"
   const val REGISTER = "register"
-  const val HOME     = "home/1008116902"
+  // Use a placeholder {username} so the NavHost knows it's a variable
+  const val HOME     = "home/{username}"
 }
 
 @Composable
@@ -23,6 +28,7 @@ fun AppNavigation(viewModel: AuthViewModel) {
       LoginScreen(
         viewModel = viewModel,
         onLoginSuccess = { username ->
+          // Navigates to e.g., "home/JohnDoe"
           navController.navigate("home/$username") {
             popUpTo(Routes.LOGIN) { inclusive = true }
           }
@@ -46,15 +52,22 @@ fun AppNavigation(viewModel: AuthViewModel) {
       )
     }
 
-    composable(Routes.HOME,
+// Inside AppNavigation.kt
+    composable(
+      route = Routes.HOME, // This is "home/{username}"
       arguments = listOf(navArgument("username") { type = NavType.StringType })
     ) { backStackEntry ->
-      val username = backStackEntry.arguments?.getString("username") ?: ""
-      HomeScreen(username = username, onLogout = {
-        navController.navigate(Routes.LOGIN) {
-          popUpTo(Routes.HOME) { inclusive = true }
+      // Extract the username safely
+      val username = backStackEntry.arguments?.getString("username") ?: "Guest"
+      HomeScreen(
+        username = username,
+        onLogout = {
+          navController.navigate(Routes.LOGIN) {
+            popUpTo(0) // Clear the whole backstack on logout
+          }
         }
-      })
+      )
     }
+
   }
-}
+  }

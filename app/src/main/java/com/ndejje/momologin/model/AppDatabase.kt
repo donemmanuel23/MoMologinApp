@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.model
 
 import android.content.Context
 import androidx.room.Database

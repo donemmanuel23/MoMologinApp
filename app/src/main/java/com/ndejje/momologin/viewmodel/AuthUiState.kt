@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.viewmodel
 
 sealed class AuthUiState {
   object Idle    : AuthUiState()

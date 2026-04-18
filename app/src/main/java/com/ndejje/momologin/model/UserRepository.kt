@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.model
 
 class UserRepository(private val userDao: UserDao) {
 

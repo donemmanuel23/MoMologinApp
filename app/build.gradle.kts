@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.ndejje.momologin"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.ndejje.momologin"
@@ -44,6 +44,13 @@ kotlin {
 }
 
 dependencies {
+    kotlin
+        // Check for this line:
+        implementation("androidx.navigation:navigation-compose:2.7.7")
+
+        // Also ensure you have the Lifecycle dependencies for the ViewModel
+        implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+
     // Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

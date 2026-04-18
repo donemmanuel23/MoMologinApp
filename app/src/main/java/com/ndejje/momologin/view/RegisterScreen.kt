@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -6,6 +6,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
@@ -15,6 +16,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.ndejje.momologin.R
+import com.ndejje.momologin.viewmodel.AuthUiState
+import com.ndejje.momologin.viewmodel.AuthViewModel
 
 @Composable
 fun RegisterScreen(
@@ -23,11 +26,11 @@ fun RegisterScreen(
   onNavigateToLogin: () -> Unit
 ) {
   val authState        by viewModel.authState.collectAsState()
-  var fullNameInput    by remember { mutableStateOf("") }
-  var usernameInput    by remember { mutableStateOf("") }
-  var emailInput       by remember { mutableStateOf("") }
-  var passwordInput    by remember { mutableStateOf("") }
-  var confirmPassInput by remember { mutableStateOf("") }
+  var fullNameInput    by rememberSaveable { mutableStateOf("") }
+  var usernameInput    by rememberSaveable { mutableStateOf("") }
+  var emailInput       by rememberSaveable { mutableStateOf("") }
+  var passwordInput    by rememberSaveable { mutableStateOf("") }
+  var confirmPassInput by rememberSaveable { mutableStateOf("") }
 
   LaunchedEffect(authState) {
     if (authState is AuthUiState.Success) {

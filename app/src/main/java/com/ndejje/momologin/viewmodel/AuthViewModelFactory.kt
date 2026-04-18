@@ -1,7 +1,8 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.ndejje.momologin.model.UserRepository
 
 class AuthViewModelFactory(
   private val repository: UserRepository

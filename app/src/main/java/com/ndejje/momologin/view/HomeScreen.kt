@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*

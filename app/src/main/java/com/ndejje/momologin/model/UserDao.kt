@@ -1,4 +1,4 @@
-package com.ndejje.momologin
+package com.ndejje.momologin.model
 
 import androidx.room.Dao
 import androidx.room.Insert

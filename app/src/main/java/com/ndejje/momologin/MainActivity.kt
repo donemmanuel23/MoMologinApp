@@ -14,7 +14,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.ndejje.momologin.R
+import com.ndejje.momologin.model.AppDatabase
+import com.ndejje.momologin.model.UserRepository
 import com.ndejje.momologin.ui.theme.MoMoLoginAppTheme
+import com.ndejje.momologin.viewmodel.AuthViewModel
+import com.ndejje.momologin.viewmodel.AuthViewModelFactory
+
+
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
